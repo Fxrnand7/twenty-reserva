@@ -1,256 +1,475 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>TWENTY — Reservas</title>
+<title>TWENTY — Reserva</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;
+    color: #111111;
+}
+
+.contenedor {
+    width: 100%;
+    max-width: 760px;
+    margin: auto;
+    padding: 45px 25px 60px;
+}
+
+/* LOGO */
+
+.logo {
+    text-align: center;
+    font-size: 25px;
+    letter-spacing: 6px;
+    font-weight: 600;
+    margin-bottom: 55px;
+}
+
+/* TITULO */
+
+.titulo {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 400;
+    margin-bottom: 35px;
+}
+
+/* PRODUCTO */
+
+.producto {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.imagen-producto {
+    width: 260px;
+    height: 330px;
+    object-fit: contain;
+    display: block;
+    margin: auto;
+}
+
+.nombre-producto {
+    font-size: 17px;
+    margin-top: 15px;
+    margin-bottom: 8px;
+}
+
+.precio {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* FORMULARIO */
+
+.formulario {
+    border-top: 1px solid #dddddd;
+    padding-top: 30px;
+}
+
+.campo {
+    margin-bottom: 22px;
+}
+
+label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .5px;
+    margin-bottom: 8px;
+}
+
+input,
+select {
+    width: 100%;
+    height: 48px;
+    border: 1px solid #cccccc;
+    background: white;
+    padding: 0 14px;
+    font-size: 14px;
+    outline: none;
+}
+
+input:focus,
+select:focus {
+    border-color: #111111;
+}
+
+/* BOTON */
+
+.boton {
+    width: 100%;
+    height: 52px;
+    border: none;
+    background: #111111;
+    color: white;
+    font-size: 13px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-top: 8px;
+}
+
+.boton:hover {
+    background: #333333;
+}
+
+/* CARGANDO */
+
+.cargando {
+    display: none;
+    text-align: center;
+    margin-top: 28px;
+}
+
+/* RUEDITA */
+
+.ruedita {
+    width: 32px;
+    height: 32px;
+    border: 3px solid #dddddd;
+    border-top: 3px solid #111111;
+    border-radius: 50%;
+    animation: girar 0.8s linear infinite;
+    margin: auto;
+}
+
+@keyframes girar {
+    0% {
+        transform: rotate(0deg);
     }
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #ffffff;
-      color: #111111;
-      min-height: 100vh;
+    100% {
+        transform: rotate(360deg);
     }
+}
+
+/* MENSAJE FINAL */
+
+.exito {
+    display: none;
+    text-align: center;
+    padding: 35px 20px;
+    border: 1px solid #dddddd;
+    margin-top: 30px;
+}
+
+.exito h2 {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 12px;
+}
+
+.exito p {
+    color: #666666;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* CELULAR */
+
+@media (max-width: 600px) {
 
     .contenedor {
-      width: 100%;
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 45px 25px;
+        padding: 30px 20px 50px;
     }
 
     .logo {
-      text-align: center;
-      font-size: 25px;
-      letter-spacing: 5px;
-      font-weight: 600;
-      margin-bottom: 55px;
+        margin-bottom: 45px;
     }
 
-    h1 {
-      text-align: center;
-      font-size: 30px;
-      font-weight: 500;
-      margin-bottom: 12px;
+    .titulo {
+        font-size: 24px;
     }
 
-    .subtitulo {
-      text-align: center;
-      color: #777;
-      font-size: 15px;
-      margin-bottom: 40px;
+    .imagen-producto {
+        width: 230px;
+        height: 290px;
     }
 
-    .formulario {
-      border-top: 1px solid #ddd;
-      padding-top: 30px;
-    }
+}
 
-    label {
-      display: block;
-      font-size: 13px;
-      margin-bottom: 8px;
-      font-weight: 600;
-    }
-
-    input,
-    select {
-      width: 100%;
-      padding: 15px;
-      border: 1px solid #ccc;
-      background: white;
-      font-size: 14px;
-      margin-bottom: 22px;
-      outline: none;
-    }
-
-    input:focus,
-    select:focus {
-      border-color: #111;
-    }
-
-    .fila {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-    }
-
-    .boton {
-      width: 100%;
-      border: none;
-      background: #111;
-      color: white;
-      padding: 17px;
-      font-size: 14px;
-      letter-spacing: 1px;
-      cursor: pointer;
-      margin-top: 10px;
-    }
-
-    .boton:hover {
-      background: #333;
-    }
-
-    .mensaje {
-      display: none;
-      text-align: center;
-      padding: 35px 20px;
-      border: 1px solid #ddd;
-      margin-top: 25px;
-    }
-
-    .mensaje h2 {
-      font-size: 22px;
-      font-weight: 500;
-      margin-bottom: 12px;
-    }
-
-    .mensaje p {
-      color: #666;
-      font-size: 14px;
-      line-height: 1.6;
-    }
-
-    .cargando {
-      display: none;
-      text-align: center;
-      margin-top: 25px;
-      color: #555;
-      font-size: 14px;
-    }
-
-    @media (max-width: 600px) {
-      .contenedor {
-        padding: 30px 20px;
-      }
-
-      .fila {
-        grid-template-columns: 1fr;
-        gap: 0;
-      }
-
-      h1 {
-        font-size: 25px;
-      }
-    }
-  </style>
+</style>
 </head>
+
 
 <body>
 
-  <div class="contenedor">
+<div class="contenedor">
 
-    <div class="logo">TWENTY</div>
+    <div class="logo">
+        TWENTY
+    </div>
 
-    <h1>RESERVA TU PRENDA</h1>
 
-    <p class="subtitulo">
-      Completa tus datos para realizar tu reserva.
-    </p>
+    <h1 class="titulo">
+        FINALIZA TU RESERVA
+    </h1>
 
-    <div class="formulario">
 
-      <label for="nombre">NOMBRE COMPLETO</label>
-      <input
-        type="text"
-        id="nombre"
-        placeholder="Ingresa tu nombre"
-      >
+    <!-- PRODUCTO -->
 
-      <label for="telefono">TELÉFONO</label>
-      <input
-        type="tel"
-        id="telefono"
-        placeholder="Ingresa tu número"
-      >
+    <div class="producto">
 
-      <label for="producto">PRENDA</label>
-      <input
-        type="text"
-        id="producto"
-        placeholder="Nombre de la prenda"
-      >
+        <img
+            id="imagenProducto"
+            class="imagen-producto"
+            src="https://i.ibb.co/gZrPB788/TMW-0285.webp"
+            alt="Prenda"
+        >
 
-      <div class="fila">
-
-        <div>
-          <label for="talla">TALLA</label>
-          <select id="talla">
-            <option value="">Seleccionar</option>
-            <option>S</option>
-            <option>M</option>
-            <option>L</option>
-            <option>XL</option>
-          </select>
+        <div
+            id="nombreProducto"
+            class="nombre-producto">
+            POLO HIGH COTON
         </div>
 
-        <div>
-          <label for="color">COLOR</label>
-          <input
-            type="text"
-            id="color"
-            placeholder="Ej. Negro"
-          >
+        <div
+            id="precioProducto"
+            class="precio">
+            $ 40.00
         </div>
-
-      </div>
-
-      <label for="fecha">FECHA DE RESERVA</label>
-      <input type="date" id="fecha">
-
-      <button class="boton" onclick="reservar()">
-        RESERVAR PRENDA
-      </button>
-
-      <div class="cargando" id="cargando">
-        Procesando reserva...
-      </div>
-
-      <div class="mensaje" id="mensaje">
-        <h2>RESERVA REGISTRADA</h2>
-        <p>
-          Tu solicitud de reserva ha sido registrada correctamente.
-          Nos pondremos en contacto contigo para confirmar la reserva.
-        </p>
-      </div>
 
     </div>
 
-  </div>
 
-  <script>
-    function reservar() {
+    <!-- FORMULARIO -->
 
-      const nombre = document.getElementById("nombre").value;
-      const telefono = document.getElementById("telefono").value;
-      const producto = document.getElementById("producto").value;
-      const talla = document.getElementById("talla").value;
-      const color = document.getElementById("color").value;
-      const fecha = document.getElementById("fecha").value;
+    <div class="formulario">
 
-      if (!nombre || !telefono || !producto || !talla || !color || !fecha) {
-        alert("Por favor completa todos los campos.");
-        return;
-      }
+        <div class="campo">
 
-      document.getElementById("cargando").style.display = "block";
+            <label>
+                NOMBRE
+            </label>
 
-      setTimeout(function() {
+            <input
+                type="text"
+                id="nombre"
+                placeholder="Ingresa tu nombre"
+            >
 
-        document.getElementById("cargando").style.display = "none";
-        document.getElementById("mensaje").style.display = "block";
+        </div>
 
-      }, 1200);
+
+        <div class="campo">
+
+            <label>
+                TELÉFONO
+            </label>
+
+            <input
+                type="tel"
+                id="telefono"
+                placeholder="Ingresa tu teléfono"
+            >
+
+        </div>
+
+
+        <div class="campo">
+
+            <label>
+                TALLA
+            </label>
+
+            <select id="talla">
+
+                <option value="">
+                    Seleccionar talla
+                </option>
+
+                <option value="S">
+                    S
+                </option>
+
+                <option value="M">
+                    M
+                </option>
+
+                <option value="L">
+                    L
+                </option>
+
+                <option value="XL">
+                    XL
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="campo">
+
+            <label>
+                FECHA DE RESERVA
+            </label>
+
+            <input
+                type="date"
+                id="fecha"
+            >
+
+        </div>
+
+
+        <button
+            class="boton"
+            onclick="reservar()">
+
+            RESERVAR
+
+        </button>
+
+
+        <!-- CARGANDO -->
+
+        <div
+            class="cargando"
+            id="cargando">
+
+            <div class="ruedita"></div>
+
+        </div>
+
+
+        <!-- MENSAJE FINAL -->
+
+        <div
+            class="exito"
+            id="exito">
+
+            <h2>
+                TU RESERVA HA SIDO COMPLETADA
+            </h2>
+
+            <p>
+                Hemos recibido correctamente los datos de tu reserva.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* PRODUCTOS */
+
+const productos = {
+
+    "22": {
+
+        nombre: "POLO HIGH COTON",
+
+        precio: "$ 40.00",
+
+        imagen: "https://i.ibb.co/gZrPB788/TMW-0285.webp"
+
     }
-  </script>
+
+};
+
+
+/* LEER PRODUCTO DE LA URL */
+
+const parametros = new URLSearchParams(
+    window.location.search
+);
+
+const productoId = parametros.get("producto");
+
+
+/* MOSTRAR PRODUCTO */
+
+if (productoId && productos[productoId]) {
+
+    document.getElementById("nombreProducto").textContent =
+        productos[productoId].nombre;
+
+    document.getElementById("precioProducto").textContent =
+        productos[productoId].precio;
+
+    document.getElementById("imagenProducto").src =
+        productos[productoId].imagen;
+
+}
+
+
+/* RESERVAR */
+
+function reservar() {
+
+    const nombre =
+        document.getElementById("nombre").value.trim();
+
+    const telefono =
+        document.getElementById("telefono").value.trim();
+
+    const talla =
+        document.getElementById("talla").value;
+
+    const fecha =
+        document.getElementById("fecha").value;
+
+
+    /* COMPROBAR CAMPOS */
+
+    if (
+        !nombre ||
+        !telefono ||
+        !talla ||
+        !fecha
+    ) {
+
+        alert("Completa todos los datos para continuar.");
+
+        return;
+
+    }
+
+
+    /* OCULTAR BOTON */
+
+    document.querySelector(".boton").style.display =
+        "none";
+
+
+    /* MOSTRAR CARGANDO */
+
+    document.getElementById("cargando").style.display =
+        "block";
+
+
+    /* SIMULAR PROCESAMIENTO */
+
+    setTimeout(function() {
+
+        document.getElementById("cargando").style.display =
+            "none";
+
+        document.getElementById("exito").style.display =
+            "block";
+
+    }, 1800);
+
+}
+
+</script>
 
 </body>
 </html>

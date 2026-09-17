@@ -10,11 +10,9 @@ content="width=device-width, initial-scale=1.0">
 
 <title>TWENTY — Reserva</title>
 
-
 <style>
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap');
-
 
 *{
     box-sizing:border-box;
@@ -22,391 +20,209 @@ content="width=device-width, initial-scale=1.0">
     padding:0;
 }
 
-
 body{
     font-family:'Montserrat',sans-serif;
     background:#fff;
     color:#111;
 }
 
-
-/* CONTENEDOR */
-
 .twenty-reserva{
-
     width:100%;
-
     max-width:760px;
-
     margin:auto;
-
     padding:50px 25px 70px;
-
 }
-
-
-/* LOGO */
 
 .logo{
-
     text-align:center;
-
     font-size:25px;
-
     font-weight:500;
-
     letter-spacing:6px;
-
     margin-bottom:48px;
-
 }
-
-
-/* TITULO */
 
 .titulo{
-
     text-align:center;
-
     font-size:11px;
-
     font-weight:500;
-
     letter-spacing:3px;
-
     margin-bottom:35px;
-
 }
-
-
-/* PRODUCTO */
 
 .producto{
-
     text-align:center;
-
     margin-bottom:38px;
-
 }
 
-
-/* IMAGEN */
+/* IMAGEN SIN CUADRO GRIS */
 
 .imagen{
-
     width:100%;
-
     height:390px;
-
-    background:#f3f3f3;
-
+    background:transparent;
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
     overflow:hidden;
-
 }
-
 
 .imagen img{
-
     width:100%;
-
     height:100%;
-
     object-fit:contain;
-
+    display:block;
 }
-
-
-/* INFORMACION */
 
 .nombre{
-
     margin-top:18px;
-
     font-size:13px;
-
     font-weight:500;
-
     letter-spacing:.4px;
-
 }
-
 
 .precio{
-
     margin-top:7px;
-
     font-size:12px;
-
     color:#777;
-
 }
-
-
-/* FORMULARIO */
 
 .formulario{
-
     border-top:1px solid #e5e5e5;
-
     padding-top:28px;
-
 }
-
-
-/* CAMPOS */
 
 .campo{
-
     margin-bottom:22px;
-
 }
-
 
 label{
-
     display:block;
-
     font-size:10px;
-
     font-weight:500;
-
     letter-spacing:1.5px;
-
     margin-bottom:9px;
-
 }
-
 
 input{
-
     width:100%;
-
     height:46px;
-
     border:1px solid #d9d9d9;
-
     padding:0 13px;
-
     font-family:'Montserrat',sans-serif;
-
     font-size:12px;
-
     outline:none;
-
+    background:#fff;
 }
-
 
 input:focus{
-
     border-color:#111;
-
 }
-
-
-/* TALLAS */
 
 .tallas{
-
     display:flex;
-
     gap:8px;
-
     flex-wrap:wrap;
-
 }
-
 
 .talla{
-
     width:48px;
-
     height:42px;
-
     background:#fff;
-
     border:1px solid #d9d9d9;
-
     cursor:pointer;
-
     font-family:'Montserrat',sans-serif;
-
     font-size:11px;
-
     transition:.2s;
-
 }
-
 
 .talla:hover{
-
     border-color:#111;
-
 }
-
 
 .talla.seleccionada{
-
     background:#111;
-
     color:#fff;
-
     border-color:#111;
-
 }
-
-
-/* BOTON */
 
 .boton{
-
     width:100%;
-
     height:50px;
-
     margin-top:8px;
-
     border:none;
-
     background:#111;
-
     color:#fff;
-
     font-family:'Montserrat',sans-serif;
-
     font-size:10px;
-
     letter-spacing:2px;
-
     cursor:pointer;
-
 }
-
 
 .boton:hover{
-
     background:#333;
-
 }
-
-
-/* CARGANDO */
 
 .cargando{
-
     display:none;
-
     text-align:center;
-
     padding-top:28px;
-
 }
-
 
 .ruedita{
-
     width:30px;
-
     height:30px;
-
     border:2px solid #ddd;
-
     border-top:2px solid #111;
-
     border-radius:50%;
-
     margin:auto;
-
     animation:girar .8s linear infinite;
-
 }
-
 
 @keyframes girar{
 
     from{
-
         transform:rotate(0deg);
-
     }
 
     to{
-
         transform:rotate(360deg);
-
     }
 
 }
 
-
-/* EXITO */
-
 .exito{
-
     display:none;
-
     text-align:center;
-
     border:1px solid #ddd;
-
     padding:32px 20px;
-
     margin-top:25px;
-
 }
-
 
 .exito h2{
-
     font-size:15px;
-
     font-weight:500;
-
     letter-spacing:1px;
-
     margin-bottom:10px;
-
 }
-
 
 .exito p{
-
     font-size:11px;
-
     color:#777;
-
     line-height:1.6;
-
 }
-
-
-/* MOVIL */
 
 @media(max-width:600px){
 
     .twenty-reserva{
-
         padding:35px 18px 55px;
-
     }
-
 
     .logo{
-
         margin-bottom:40px;
-
     }
 
-
     .imagen{
-
         height:330px;
-
     }
 
 }
@@ -415,241 +231,179 @@ input:focus{
 
 </head>
 
-
 <body>
 
-
 <div class="twenty-reserva">
-
 
     <!-- LOGO -->
 
     <div class="logo">
-
         TWENTY
-
     </div>
-
 
     <!-- TITULO -->
 
     <div class="titulo">
-
         FINALIZA TU RESERVA
-
     </div>
-
 
     <!-- PRODUCTO -->
 
     <div class="producto">
 
-
         <div class="imagen">
 
             <img
-
                 id="imagenProducto"
-
                 src=""
-
                 alt="Producto"
-
             >
 
         </div>
 
-
         <div
-
             class="nombre"
-
             id="nombreProducto">
-
         </div>
-
 
         <div
-
             class="precio"
-
             id="precioProducto">
-
         </div>
-
 
     </div>
-
 
     <!-- FORMULARIO -->
 
     <div class="formulario">
-
 
         <!-- NOMBRE -->
 
         <div class="campo">
 
             <label>
-
                 NOMBRE
-
             </label>
 
             <input
-
                 type="text"
-
                 id="nombre"
-
                 placeholder="Ingresa tu nombre"
-
             >
 
         </div>
-
 
         <!-- TELEFONO -->
 
         <div class="campo">
 
             <label>
-
                 TELÉFONO
-
             </label>
 
             <input
-
                 type="tel"
-
                 id="telefono"
-
                 placeholder="Ingresa tu teléfono"
-
             >
 
         </div>
 
+        <!-- CORREO -->
+
+        <div class="campo">
+
+            <label>
+                CORREO ELECTRÓNICO
+            </label>
+
+            <input
+                type="email"
+                id="correo"
+                placeholder="Ingresa tu correo electrónico"
+            >
+
+        </div>
 
         <!-- TALLA -->
 
         <div class="campo">
 
             <label>
-
                 TALLA
-
             </label>
 
-
             <div
-
                 class="tallas"
-
                 id="tallas">
-
             </div>
 
-
         </div>
-
 
         <!-- FECHA -->
 
         <div class="campo">
 
             <label>
-
                 FECHA DE RESERVA
-
             </label>
 
             <input
-
                 type="date"
-
                 id="fecha"
-
             >
 
         </div>
 
-
         <!-- BOTON -->
 
         <button
-
             class="boton"
-
             id="botonReservar"
-
             onclick="reservar()">
 
             RESERVAR
 
         </button>
 
-
         <!-- CARGANDO -->
 
         <div
-
             class="cargando"
-
             id="cargando">
-
 
             <div class="ruedita"></div>
 
-
         </div>
-
 
         <!-- EXITO -->
 
         <div
-
             class="exito"
-
             id="exito">
 
-
             <h2>
-
                 TU RESERVA HA SIDO COMPLETADA
-
             </h2>
 
-
             <p>
-
                 Hemos recibido correctamente
-
                 los datos de tu reserva.
-
             </p>
-
 
         </div>
 
-
     </div>
-
 
 </div>
 
-
 <script>
-
 
 /* =========================
    PRODUCTOS
 ========================= */
 
-
 const productos = {
-
 
     "polo-boxy": {
 
@@ -667,7 +421,6 @@ const productos = {
 
     },
 
-
     "pantalon-baggy": {
 
         nombre:
@@ -683,7 +436,6 @@ const productos = {
         ["28","30","32","34"]
 
     },
-
 
     "zip-hoodie": {
 
@@ -708,16 +460,13 @@ const productos = {
    LEER PRODUCTO
 ========================= */
 
-
 const parametros =
 new URLSearchParams(
     window.location.search
 );
 
-
 const productoID =
 parametros.get("producto");
-
 
 const producto =
 productos[productoID];
@@ -727,21 +476,17 @@ productos[productoID];
    MOSTRAR PRODUCTO
 ========================= */
 
-
 if(producto){
-
 
     document
     .getElementById("imagenProducto")
     .src =
     producto.imagen;
 
-
     document
     .getElementById("nombreProducto")
     .textContent =
     producto.nombre;
-
 
     document
     .getElementById("precioProducto")
@@ -754,31 +499,24 @@ if(producto){
     const contenedorTallas =
     document.getElementById("tallas");
 
-
     producto.tallas.forEach(
     talla => {
-
 
         const boton =
         document.createElement("button");
 
-
         boton.className =
         "talla";
-
 
         boton.textContent =
         talla;
 
-
         boton.type =
         "button";
-
 
         boton.addEventListener(
         "click",
         function(){
-
 
             document
             .querySelectorAll(".talla")
@@ -788,30 +526,23 @@ if(producto){
             "seleccionada"
             ));
 
-
             this.classList.add(
             "seleccionada"
             );
 
-
         });
-
 
         contenedorTallas
         .appendChild(boton);
 
-
     });
 
-
 }else{
-
 
     document
     .getElementById("nombreProducto")
     .textContent =
     "PRODUCTO NO ENCONTRADO";
-
 
 }
 
@@ -820,9 +551,7 @@ if(producto){
    RESERVAR
 ========================= */
 
-
 function reservar(){
-
 
     const nombre =
     document
@@ -830,19 +559,22 @@ function reservar(){
     .value
     .trim();
 
-
     const telefono =
     document
     .getElementById("telefono")
     .value
     .trim();
 
+    const correo =
+    document
+    .getElementById("correo")
+    .value
+    .trim();
 
     const fecha =
     document
     .getElementById("fecha")
     .value;
-
 
     const tallaSeleccionada =
     document
@@ -854,12 +586,29 @@ function reservar(){
     if(
         !nombre ||
         !telefono ||
+        !correo ||
         !fecha ||
         !tallaSeleccionada
     ){
 
         alert(
         "Completa todos los datos y selecciona una talla."
+        );
+
+        return;
+
+    }
+
+
+    /* VALIDAR CORREO */
+
+    const formatoCorreo =
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if(!formatoCorreo.test(correo)){
+
+        alert(
+        "Ingresa un correo electrónico válido."
         );
 
         return;
@@ -887,27 +636,21 @@ function reservar(){
 
     setTimeout(function(){
 
-
         document
         .getElementById("cargando")
         .style.display =
         "none";
-
 
         document
         .getElementById("exito")
         .style.display =
         "block";
 
-
     },1800);
-
 
 }
 
-
 </script>
-
 
 </body>
 

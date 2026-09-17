@@ -1,1 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>TWENTY — Reservas</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #ffffff;
+      color: #111111;
+      min-height: 100vh;
+    }
+
+    .contenedor {
+      width: 100%;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 45px 25px;
+    }
+
+    .logo {
+      text-align: center;
+      font-size: 25px;
+      letter-spacing: 5px;
+      font-weight: 600;
+      margin-bottom: 55px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 30px;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .subtitulo {
+      text-align: center;
+      color: #777;
+      font-size: 15px;
+      margin-bottom: 40px;
+    }
+
+    .formulario {
+      border-top: 1px solid #ddd;
+      padding-top: 30px;
+    }
+
+    label {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 15px;
+      border: 1px solid #ccc;
+      background: white;
+      font-size: 14px;
+      margin-bottom: 22px;
+      outline: none;
+    }
+
+    input:focus,
+    select:focus {
+      border-color: #111;
+    }
+
+    .fila {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .boton {
+      width: 100%;
+      border: none;
+      background: #111;
+      color: white;
+      padding: 17px;
+      font-size: 14px;
+      letter-spacing: 1px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .boton:hover {
+      background: #333;
+    }
+
+    .mensaje {
+      display: none;
+      text-align: center;
+      padding: 35px 20px;
+      border: 1px solid #ddd;
+      margin-top: 25px;
+    }
+
+    .mensaje h2 {
+      font-size: 22px;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .mensaje p {
+      color: #666;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .cargando {
+      display: none;
+      text-align: center;
+      margin-top: 25px;
+      color: #555;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      .contenedor {
+        padding: 30px 20px;
+      }
+
+      .fila {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      h1 {
+        font-size: 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="contenedor">
+
+    <div class="logo">TWENTY</div>
+
+    <h1>RESERVA TU PRENDA</h1>
+
+    <p class="subtitulo">
+      Completa tus datos para realizar tu reserva.
+    </p>
+
+    <div class="formulario">
+
+      <label for="nombre">NOMBRE COMPLETO</label>
+      <input
+        type="text"
+        id="nombre"
+        placeholder="Ingresa tu nombre"
+      >
+
+      <label for="telefono">TELÉFONO</label>
+      <input
+        type="tel"
+        id="telefono"
+        placeholder="Ingresa tu número"
+      >
+
+      <label for="producto">PRENDA</label>
+      <input
+        type="text"
+        id="producto"
+        placeholder="Nombre de la prenda"
+      >
+
+      <div class="fila">
+
+        <div>
+          <label for="talla">TALLA</label>
+          <select id="talla">
+            <option value="">Seleccionar</option>
+            <option>S</option>
+            <option>M</option>
+            <option>L</option>
+            <option>XL</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="color">COLOR</label>
+          <input
+            type="text"
+            id="color"
+            placeholder="Ej. Negro"
+          >
+        </div>
+
+      </div>
+
+      <label for="fecha">FECHA DE RESERVA</label>
+      <input type="date" id="fecha">
+
+      <button class="boton" onclick="reservar()">
+        RESERVAR PRENDA
+      </button>
+
+      <div class="cargando" id="cargando">
+        Procesando reserva...
+      </div>
+
+      <div class="mensaje" id="mensaje">
+        <h2>RESERVA REGISTRADA</h2>
+        <p>
+          Tu solicitud de reserva ha sido registrada correctamente.
+          Nos pondremos en contacto contigo para confirmar la reserva.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    function reservar() {
+
+      const nombre = document.getElementById("nombre").value;
+      const telefono = document.getElementById("telefono").value;
+      const producto = document.getElementById("producto").value;
+      const talla = document.getElementById("talla").value;
+      const color = document.getElementById("color").value;
+      const fecha = document.getElementById("fecha").value;
+
+      if (!nombre || !telefono || !producto || !talla || !color || !fecha) {
+        alert("Por favor completa todos los campos.");
+        return;
+      }
+
+      document.getElementById("cargando").style.display = "block";
+
+      setTimeout(function() {
+
+        document.getElementById("cargando").style.display = "none";
+        document.getElementById("mensaje").style.display = "block";
+
+      }, 1200);
+    }
+  </script>
+
+</body>
+</html>

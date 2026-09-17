@@ -1,245 +1,482 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>TWENTY — Reserva</title>
 
+
 <style>
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap');
+
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #ffffff;
-    color: #111111;
+
+body{
+    font-family:'Montserrat',sans-serif;
+    background:#fff;
+    color:#111;
 }
 
-.contenedor {
-    width: 100%;
-    max-width: 760px;
-    margin: auto;
-    padding: 45px 25px 60px;
+
+/* CONTENEDOR */
+
+.twenty-reserva{
+
+    width:100%;
+
+    max-width:760px;
+
+    margin:auto;
+
+    padding:50px 25px 70px;
+
 }
+
 
 /* LOGO */
 
-.logo {
-    text-align: center;
-    font-size: 25px;
-    letter-spacing: 6px;
-    font-weight: 600;
-    margin-bottom: 55px;
+.logo{
+
+    text-align:center;
+
+    font-size:25px;
+
+    font-weight:500;
+
+    letter-spacing:6px;
+
+    margin-bottom:48px;
+
 }
+
 
 /* TITULO */
 
-.titulo {
-    text-align: center;
-    font-size: 28px;
-    font-weight: 400;
-    margin-bottom: 35px;
+.titulo{
+
+    text-align:center;
+
+    font-size:11px;
+
+    font-weight:500;
+
+    letter-spacing:3px;
+
+    margin-bottom:35px;
+
 }
+
 
 /* PRODUCTO */
 
-.producto {
-    text-align: center;
-    margin-bottom: 40px;
+.producto{
+
+    text-align:center;
+
+    margin-bottom:38px;
+
 }
 
-.imagen-producto {
-    width: 260px;
-    height: 330px;
-    object-fit: contain;
-    display: block;
-    margin: auto;
+
+/* IMAGEN */
+
+.imagen{
+
+    width:100%;
+
+    height:390px;
+
+    background:#f3f3f3;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    overflow:hidden;
+
 }
 
-.nombre-producto {
-    font-size: 17px;
-    margin-top: 15px;
-    margin-bottom: 8px;
+
+.imagen img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:contain;
+
 }
 
-.precio {
-    font-size: 16px;
-    font-weight: 600;
+
+/* INFORMACION */
+
+.nombre{
+
+    margin-top:18px;
+
+    font-size:13px;
+
+    font-weight:500;
+
+    letter-spacing:.4px;
+
 }
+
+
+.precio{
+
+    margin-top:7px;
+
+    font-size:12px;
+
+    color:#777;
+
+}
+
 
 /* FORMULARIO */
 
-.formulario {
-    border-top: 1px solid #dddddd;
-    padding-top: 30px;
+.formulario{
+
+    border-top:1px solid #e5e5e5;
+
+    padding-top:28px;
+
 }
 
-.campo {
-    margin-bottom: 22px;
+
+/* CAMPOS */
+
+.campo{
+
+    margin-bottom:22px;
+
 }
 
-label {
-    display: block;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: .5px;
-    margin-bottom: 8px;
+
+label{
+
+    display:block;
+
+    font-size:10px;
+
+    font-weight:500;
+
+    letter-spacing:1.5px;
+
+    margin-bottom:9px;
+
 }
 
-input,
-select {
-    width: 100%;
-    height: 48px;
-    border: 1px solid #cccccc;
-    background: white;
-    padding: 0 14px;
-    font-size: 14px;
-    outline: none;
+
+input{
+
+    width:100%;
+
+    height:46px;
+
+    border:1px solid #d9d9d9;
+
+    padding:0 13px;
+
+    font-family:'Montserrat',sans-serif;
+
+    font-size:12px;
+
+    outline:none;
+
 }
 
-input:focus,
-select:focus {
-    border-color: #111111;
+
+input:focus{
+
+    border-color:#111;
+
 }
+
+
+/* TALLAS */
+
+.tallas{
+
+    display:flex;
+
+    gap:8px;
+
+    flex-wrap:wrap;
+
+}
+
+
+.talla{
+
+    width:48px;
+
+    height:42px;
+
+    background:#fff;
+
+    border:1px solid #d9d9d9;
+
+    cursor:pointer;
+
+    font-family:'Montserrat',sans-serif;
+
+    font-size:11px;
+
+    transition:.2s;
+
+}
+
+
+.talla:hover{
+
+    border-color:#111;
+
+}
+
+
+.talla.seleccionada{
+
+    background:#111;
+
+    color:#fff;
+
+    border-color:#111;
+
+}
+
 
 /* BOTON */
 
-.boton {
-    width: 100%;
-    height: 52px;
-    border: none;
-    background: #111111;
-    color: white;
-    font-size: 13px;
-    letter-spacing: 1px;
-    cursor: pointer;
-    margin-top: 8px;
+.boton{
+
+    width:100%;
+
+    height:50px;
+
+    margin-top:8px;
+
+    border:none;
+
+    background:#111;
+
+    color:#fff;
+
+    font-family:'Montserrat',sans-serif;
+
+    font-size:10px;
+
+    letter-spacing:2px;
+
+    cursor:pointer;
+
 }
 
-.boton:hover {
-    background: #333333;
+
+.boton:hover{
+
+    background:#333;
+
 }
+
 
 /* CARGANDO */
 
-.cargando {
-    display: none;
-    text-align: center;
-    margin-top: 28px;
+.cargando{
+
+    display:none;
+
+    text-align:center;
+
+    padding-top:28px;
+
 }
 
-/* RUEDITA */
 
-.ruedita {
-    width: 32px;
-    height: 32px;
-    border: 3px solid #dddddd;
-    border-top: 3px solid #111111;
-    border-radius: 50%;
-    animation: girar 0.8s linear infinite;
-    margin: auto;
+.ruedita{
+
+    width:30px;
+
+    height:30px;
+
+    border:2px solid #ddd;
+
+    border-top:2px solid #111;
+
+    border-radius:50%;
+
+    margin:auto;
+
+    animation:girar .8s linear infinite;
+
 }
 
-@keyframes girar {
-    0% {
-        transform: rotate(0deg);
+
+@keyframes girar{
+
+    from{
+
+        transform:rotate(0deg);
+
     }
 
-    100% {
-        transform: rotate(360deg);
-    }
-}
+    to{
 
-/* MENSAJE FINAL */
+        transform:rotate(360deg);
 
-.exito {
-    display: none;
-    text-align: center;
-    padding: 35px 20px;
-    border: 1px solid #dddddd;
-    margin-top: 30px;
-}
-
-.exito h2 {
-    font-size: 20px;
-    font-weight: 500;
-    margin-bottom: 12px;
-}
-
-.exito p {
-    color: #666666;
-    font-size: 14px;
-    line-height: 1.5;
-}
-
-/* CELULAR */
-
-@media (max-width: 600px) {
-
-    .contenedor {
-        padding: 30px 20px 50px;
     }
 
-    .logo {
-        margin-bottom: 45px;
+}
+
+
+/* EXITO */
+
+.exito{
+
+    display:none;
+
+    text-align:center;
+
+    border:1px solid #ddd;
+
+    padding:32px 20px;
+
+    margin-top:25px;
+
+}
+
+
+.exito h2{
+
+    font-size:15px;
+
+    font-weight:500;
+
+    letter-spacing:1px;
+
+    margin-bottom:10px;
+
+}
+
+
+.exito p{
+
+    font-size:11px;
+
+    color:#777;
+
+    line-height:1.6;
+
+}
+
+
+/* MOVIL */
+
+@media(max-width:600px){
+
+    .twenty-reserva{
+
+        padding:35px 18px 55px;
+
     }
 
-    .titulo {
-        font-size: 24px;
+
+    .logo{
+
+        margin-bottom:40px;
+
     }
 
-    .imagen-producto {
-        width: 230px;
-        height: 290px;
+
+    .imagen{
+
+        height:330px;
+
     }
 
 }
 
 </style>
+
 </head>
 
 
 <body>
 
-<div class="contenedor">
+
+<div class="twenty-reserva">
+
+
+    <!-- LOGO -->
 
     <div class="logo">
+
         TWENTY
+
     </div>
 
 
-    <h1 class="titulo">
+    <!-- TITULO -->
+
+    <div class="titulo">
+
         FINALIZA TU RESERVA
-    </h1>
+
+    </div>
 
 
     <!-- PRODUCTO -->
 
     <div class="producto">
 
-        <img
-            id="imagenProducto"
-            class="imagen-producto"
-            src="https://i.ibb.co/gZrPB788/TMW-0285.webp"
-            alt="Prenda"
-        >
 
-        <div
-            id="nombreProducto"
-            class="nombre-producto">
-            POLO HIGH COTON
+        <div class="imagen">
+
+            <img
+
+                id="imagenProducto"
+
+                src=""
+
+                alt="Producto"
+
+            >
+
         </div>
 
+
         <div
-            id="precioProducto"
-            class="precio">
-            $ 40.00
+
+            class="nombre"
+
+            id="nombreProducto">
+
         </div>
+
+
+        <div
+
+            class="precio"
+
+            id="precioProducto">
+
+        </div>
+
 
     </div>
 
@@ -248,85 +485,105 @@ select:focus {
 
     <div class="formulario">
 
+
+        <!-- NOMBRE -->
+
         <div class="campo">
 
             <label>
+
                 NOMBRE
+
             </label>
 
             <input
+
                 type="text"
+
                 id="nombre"
+
                 placeholder="Ingresa tu nombre"
+
             >
 
         </div>
 
 
+        <!-- TELEFONO -->
+
         <div class="campo">
 
             <label>
+
                 TELÉFONO
+
             </label>
 
             <input
+
                 type="tel"
+
                 id="telefono"
+
                 placeholder="Ingresa tu teléfono"
+
             >
 
         </div>
 
 
+        <!-- TALLA -->
+
         <div class="campo">
 
             <label>
+
                 TALLA
+
             </label>
 
-            <select id="talla">
 
-                <option value="">
-                    Seleccionar talla
-                </option>
+            <div
 
-                <option value="S">
-                    S
-                </option>
+                class="tallas"
 
-                <option value="M">
-                    M
-                </option>
+                id="tallas">
 
-                <option value="L">
-                    L
-                </option>
+            </div>
 
-                <option value="XL">
-                    XL
-                </option>
-
-            </select>
 
         </div>
 
 
+        <!-- FECHA -->
+
         <div class="campo">
 
             <label>
+
                 FECHA DE RESERVA
+
             </label>
 
             <input
+
                 type="date"
+
                 id="fecha"
+
             >
 
         </div>
 
+
+        <!-- BOTON -->
 
         <button
+
             class="boton"
+
+            id="botonReservar"
+
             onclick="reservar()">
 
             RESERVAR
@@ -337,106 +594,273 @@ select:focus {
         <!-- CARGANDO -->
 
         <div
+
             class="cargando"
+
             id="cargando">
+
 
             <div class="ruedita"></div>
 
+
         </div>
 
 
-        <!-- MENSAJE FINAL -->
+        <!-- EXITO -->
 
         <div
+
             class="exito"
+
             id="exito">
 
+
             <h2>
+
                 TU RESERVA HA SIDO COMPLETADA
+
             </h2>
 
+
             <p>
-                Hemos recibido correctamente los datos de tu reserva.
+
+                Hemos recibido correctamente
+
+                los datos de tu reserva.
+
             </p>
+
 
         </div>
 
+
     </div>
+
 
 </div>
 
 
 <script>
 
-/* PRODUCTOS */
+
+/* =========================
+   PRODUCTOS
+========================= */
+
 
 const productos = {
 
-    "22": {
 
-        nombre: "POLO HIGH COTON",
+    "polo-boxy": {
 
-        precio: "$ 40.00",
+        nombre:
+        "POLO BOXY FIT CON CUELLO CAMISERO",
 
-        imagen: "https://i.ibb.co/gZrPB788/TMW-0285.webp"
+        precio:
+        "$ 65.00",
+
+        imagen:
+        "https://i.ibb.co/3yv0T9cf/NUEVA-PRENDA-1.png",
+
+        tallas:
+        ["S","M","L","XL"]
+
+    },
+
+
+    "pantalon-baggy": {
+
+        nombre:
+        "PANTALON BAGGY GRIS",
+
+        precio:
+        "$ 85.00",
+
+        imagen:
+        "https://i.ibb.co/B58NZ45W/NUEVA-PRENDA-2.png",
+
+        tallas:
+        ["28","30","32","34"]
+
+    },
+
+
+    "zip-hoodie": {
+
+        nombre:
+        "ZIP HOODIE NEGRO",
+
+        precio:
+        "$ 80.00",
+
+        imagen:
+        "https://i.ibb.co/cSd3FRYK/NUEVA-PRENDA-3.png",
+
+        tallas:
+        ["S","M","L","XL"]
 
     }
 
 };
 
 
-/* LEER PRODUCTO DE LA URL */
+/* =========================
+   LEER PRODUCTO
+========================= */
 
-const parametros = new URLSearchParams(
+
+const parametros =
+new URLSearchParams(
     window.location.search
 );
 
-const productoId = parametros.get("producto");
+
+const productoID =
+parametros.get("producto");
 
 
-/* MOSTRAR PRODUCTO */
+const producto =
+productos[productoID];
 
-if (productoId && productos[productoId]) {
 
-    document.getElementById("nombreProducto").textContent =
-        productos[productoId].nombre;
+/* =========================
+   MOSTRAR PRODUCTO
+========================= */
 
-    document.getElementById("precioProducto").textContent =
-        productos[productoId].precio;
 
-    document.getElementById("imagenProducto").src =
-        productos[productoId].imagen;
+if(producto){
+
+
+    document
+    .getElementById("imagenProducto")
+    .src =
+    producto.imagen;
+
+
+    document
+    .getElementById("nombreProducto")
+    .textContent =
+    producto.nombre;
+
+
+    document
+    .getElementById("precioProducto")
+    .textContent =
+    producto.precio;
+
+
+    /* CREAR TALLAS */
+
+    const contenedorTallas =
+    document.getElementById("tallas");
+
+
+    producto.tallas.forEach(
+    talla => {
+
+
+        const boton =
+        document.createElement("button");
+
+
+        boton.className =
+        "talla";
+
+
+        boton.textContent =
+        talla;
+
+
+        boton.type =
+        "button";
+
+
+        boton.addEventListener(
+        "click",
+        function(){
+
+
+            document
+            .querySelectorAll(".talla")
+            .forEach(
+            t =>
+            t.classList.remove(
+            "seleccionada"
+            ));
+
+
+            this.classList.add(
+            "seleccionada"
+            );
+
+
+        });
+
+
+        contenedorTallas
+        .appendChild(boton);
+
+
+    });
+
+
+}else{
+
+
+    document
+    .getElementById("nombreProducto")
+    .textContent =
+    "PRODUCTO NO ENCONTRADO";
+
 
 }
 
 
-/* RESERVAR */
+/* =========================
+   RESERVAR
+========================= */
 
-function reservar() {
+
+function reservar(){
+
 
     const nombre =
-        document.getElementById("nombre").value.trim();
+    document
+    .getElementById("nombre")
+    .value
+    .trim();
+
 
     const telefono =
-        document.getElementById("telefono").value.trim();
+    document
+    .getElementById("telefono")
+    .value
+    .trim();
 
-    const talla =
-        document.getElementById("talla").value;
 
     const fecha =
-        document.getElementById("fecha").value;
+    document
+    .getElementById("fecha")
+    .value;
 
 
-    /* COMPROBAR CAMPOS */
+    const tallaSeleccionada =
+    document
+    .querySelector(".talla.seleccionada");
 
-    if (
+
+    /* VALIDAR */
+
+    if(
         !nombre ||
         !telefono ||
-        !talla ||
-        !fecha
-    ) {
+        !fecha ||
+        !tallaSeleccionada
+    ){
 
-        alert("Completa todos los datos para continuar.");
+        alert(
+        "Completa todos los datos y selecciona una talla."
+        );
 
         return;
 
@@ -445,31 +869,46 @@ function reservar() {
 
     /* OCULTAR BOTON */
 
-    document.querySelector(".boton").style.display =
-        "none";
+    document
+    .getElementById("botonReservar")
+    .style.display =
+    "none";
 
 
     /* MOSTRAR CARGANDO */
 
-    document.getElementById("cargando").style.display =
-        "block";
+    document
+    .getElementById("cargando")
+    .style.display =
+    "block";
 
 
     /* SIMULAR PROCESAMIENTO */
 
-    setTimeout(function() {
+    setTimeout(function(){
 
-        document.getElementById("cargando").style.display =
-            "none";
 
-        document.getElementById("exito").style.display =
-            "block";
+        document
+        .getElementById("cargando")
+        .style.display =
+        "none";
 
-    }, 1800);
+
+        document
+        .getElementById("exito")
+        .style.display =
+        "block";
+
+
+    },1800);
+
 
 }
 
+
 </script>
 
+
 </body>
+
 </html>

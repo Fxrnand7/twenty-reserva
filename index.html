@@ -54,8 +54,6 @@ body{
     margin-bottom:38px;
 }
 
-/* IMAGEN SIN CUADRO GRIS */
-
 .imagen{
     width:100%;
     height:390px;
@@ -229,25 +227,37 @@ input:focus{
 
 </style>
 
+<!-- EMAILJS -->
+
+<script
+src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+
+<script>
+
+(function(){
+
+    emailjs.init({
+        publicKey: "FdHYCIvlgbsKGhjYB"
+    });
+
+})();
+
+</script>
+
 </head>
 
 <body>
 
 <div class="twenty-reserva">
 
-    <!-- LOGO -->
-
     <div class="logo">
         TWENTY
     </div>
 
-    <!-- TITULO -->
-
     <div class="titulo">
         FINALIZA TU RESERVA
     </div>
-
-    <!-- PRODUCTO -->
 
     <div class="producto">
 
@@ -273,11 +283,7 @@ input:focus{
 
     </div>
 
-    <!-- FORMULARIO -->
-
     <div class="formulario">
-
-        <!-- NOMBRE -->
 
         <div class="campo">
 
@@ -293,8 +299,6 @@ input:focus{
 
         </div>
 
-        <!-- TELEFONO -->
-
         <div class="campo">
 
             <label>
@@ -308,8 +312,6 @@ input:focus{
             >
 
         </div>
-
-        <!-- CORREO -->
 
         <div class="campo">
 
@@ -325,8 +327,6 @@ input:focus{
 
         </div>
 
-        <!-- TALLA -->
-
         <div class="campo">
 
             <label>
@@ -339,8 +339,6 @@ input:focus{
             </div>
 
         </div>
-
-        <!-- FECHA -->
 
         <div class="campo">
 
@@ -355,8 +353,6 @@ input:focus{
 
         </div>
 
-        <!-- BOTON -->
-
         <button
             class="boton"
             id="botonReservar"
@@ -366,8 +362,6 @@ input:focus{
 
         </button>
 
-        <!-- CARGANDO -->
-
         <div
             class="cargando"
             id="cargando">
@@ -375,8 +369,6 @@ input:focus{
             <div class="ruedita"></div>
 
         </div>
-
-        <!-- EXITO -->
 
         <div
             class="exito"
@@ -493,8 +485,6 @@ if(producto){
     .textContent =
     producto.precio;
 
-
-    /* CREAR TALLAS */
 
     const contenedorTallas =
     document.getElementById("tallas");
@@ -616,6 +606,36 @@ function reservar(){
     }
 
 
+    /* DATOS PARA EMAILJS */
+
+    const datosReserva = {
+
+        name: nombre,
+
+        phone: telefono,
+
+        email: correo,
+
+        product: producto
+            ? producto.nombre
+            : "Producto",
+
+        price: producto
+            ? producto.precio
+            : "",
+
+        size:
+        tallaSeleccionada.textContent,
+
+        date: fecha,
+
+        image: producto
+            ? producto.imagen
+            : ""
+
+    };
+
+
     /* OCULTAR BOTON */
 
     document
@@ -632,9 +652,17 @@ function reservar(){
     "block";
 
 
-    /* SIMULAR PROCESAMIENTO */
+    /* ENVIAR A EMAILJS */
 
-    setTimeout(function(){
+    emailjs.send(
+        "service_28u43ts",
+        "template_stktgzu",
+        datosReserva
+    )
+
+    .then(function(){
+
+        /* ENVIO CORRECTO */
 
         document
         .getElementById("cargando")
@@ -646,7 +674,32 @@ function reservar(){
         .style.display =
         "block";
 
-    },1800);
+    })
+
+    .catch(function(error){
+
+        /* ERROR */
+
+        console.error(
+            "Error EmailJS:",
+            error
+        );
+
+        document
+        .getElementById("cargando")
+        .style.display =
+        "none";
+
+        document
+        .getElementById("botonReservar")
+        .style.display =
+        "block";
+
+        alert(
+        "No se pudo enviar la reserva. Inténtalo nuevamente."
+        );
+
+    });
 
 }
 
